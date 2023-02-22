@@ -1,1 +1,2 @@
 # chaoyli-mergify
+hello mergify
