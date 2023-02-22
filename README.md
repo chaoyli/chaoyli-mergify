@@ -1,2 +1,2 @@
 # chaoyli-mergify
-hello mergify v2
+hello mergify too
