@@ -1,0 +1,10 @@
+
+pull_request_rules:
+  - name: ignore backport patches when conflict
+    actions:
+      backport:
+        bot_account: {{author}}
+
+
+
+
