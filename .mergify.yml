@@ -4,7 +4,7 @@ pull_request_rules:
     actions:
       backport:
         bot_account: {{author}}
-
+        ignore_conflicts: false
 
 
 
