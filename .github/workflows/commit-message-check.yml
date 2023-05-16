@@ -1,0 +1,53 @@
+name: "PR Merge Commit Message Check"
+
+on:
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  check-commit-message:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
+    steps:
+      - name: Check Commit Title
+        uses: tim-actions/commit-message-checker-with-regex@v0.3.1
+        with:
+          pattern: '^\[(BugFix|Enhancement|Feature|Refactor|UT|Doc|Tool)\] .+'
+          message: "${{ github.event.pull_request.title }}"
+          error: 'The title of commit message does not match the pattern: ^\[(BugFix|Enhancement|Feature|Refactor|UT|Doc|Tool)\] .+'
+          excludeDescription: 'true'
+          excludeTitle: 'false'
+      - name: Check Commit Message(Step 1)
+        uses: tim-actions/commit-message-checker-with-regex@v0.3.1
+        with:
+          pattern: '(.*\[(BugFix|Enhancement|Feature|Refactor|UT|Doc|Tool)\].*)'
+          flags: 'g'
+          message: "${{ github.event.pull_request.title }}"
+          description: "${{ github.event.pull_request.body }}"
+          error: 'Remove the title from the commit message.'
+          excludeMatches: 'true'
+          excludeDescription: 'false'
+          excludeTitle: 'true'
+      - name: Check Commit Message(Step 2)
+        uses: tim-actions/commit-message-checker-with-regex@v0.3.1
+        with:
+          pattern: '(.*\*.*)'
+          flags: 'g'
+          message: "${{ github.event.pull_request.title }}"
+          description: "${{ github.event.pull_request.body }}"
+          error: 'Please organize the commit messages'
+          excludeMatches: 'true'
+          excludeDescription: 'false'
+          excludeTitle: 'true'
+      - name: Check Commit Message(Step 3)
+        uses: tim-actions/commit-message-checker-with-regex@v0.3.1
+        with:
+          pattern: 'Signed-off-by:'
+          flags: 'g'
+          message: "${{ github.event.pull_request.title }}"
+          description: "${{ github.event.pull_request.body }}"
+          error: 'Your merge commit message contains redundant Signed-off-by lines"
+          excludeMatches: 'true'
+          excludeDescription: 'false'
+          excludeTitle: 'true'
