@@ -47,7 +47,7 @@ jobs:
           flags: 'g'
           message: "${{ github.event.pull_request.title }}"
           description: "${{ github.event.pull_request.body }}"
-          error: 'Your merge commit message contains redundant Signed-off-by lines"
+          error: 'Your merge commit message contains redundant Signed-off-by lines'
           excludeMatches: 'true'
           excludeDescription: 'false'
           excludeTitle: 'true'
