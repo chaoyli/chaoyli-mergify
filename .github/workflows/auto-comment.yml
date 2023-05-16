@@ -4,7 +4,7 @@ jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-      - uses: wow-actions/auto-comment@v1.1.2
+      - uses: wow-actions/auto-comment@v1
         with:
           GITHUB_TOKEN: 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
           pullRequestOpened: |
