@@ -11,7 +11,7 @@ jobs:
     if: github.event.pull_request.merged == true
     steps:
       - name: Check Commit Title
-        uses: tim-actions/commit-message-checker-with-regex@v0.3.1
+        uses: gsactions/commit-message-checker@v2
         with:
           pattern: '^\[(BugFix|Enhancement|Feature|Refactor|UT|Doc|Tool)\] .+'
           message: "${{ github.event.pull_request.title }}"
@@ -19,7 +19,7 @@ jobs:
           excludeDescription: 'true'
           excludeTitle: 'false'
       - name: Check Commit Message(Step 1)
-        uses: tim-actions/commit-message-checker-with-regex@v0.3.1
+        uses: gsactions/commit-message-checker@v2
         with:
           pattern: '(.*\[(BugFix|Enhancement|Feature|Refactor|UT|Doc|Tool)\].*)'
           flags: 'g'
@@ -30,7 +30,7 @@ jobs:
           excludeDescription: 'false'
           excludeTitle: 'true'
       - name: Check Commit Message(Step 2)
-        uses: tim-actions/commit-message-checker-with-regex@v0.3.1
+        uses: gsactions/commit-message-checker@v2
         with:
           pattern: '(.*\*.*)'
           flags: 'g'
@@ -41,7 +41,7 @@ jobs:
           excludeDescription: 'false'
           excludeTitle: 'true'
       - name: Check Commit Message(Step 3)
-        uses: tim-actions/commit-message-checker-with-regex@v0.3.1
+        uses: gsactions/commit-message-checker@v2
         with:
           pattern: 'Signed-off-by:'
           flags: 'g'
