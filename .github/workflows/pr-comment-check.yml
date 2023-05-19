@@ -1,4 +1,4 @@
-name: PR CHECKER
+name: PR COMMENT CHECKER
 
 on:
   pull_request_review_comment:
