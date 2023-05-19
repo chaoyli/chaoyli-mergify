@@ -38,7 +38,7 @@ jobs:
           labels: '3.0'
           
       - name: remove branch-2.5 label
-        if: contains(toJson(github.event.comment.body), '[ ] 3.0') && contains(github.event.pull_request.labels.*.name, '2.5')
+        if: contains(toJson(github.event.comment.body), '[ ] 2.5') && contains(github.event.pull_request.labels.*.name, '2.5')
         uses: actions-ecosystem/action-remove-labels@v1
         with:
           labels: '2.5'
