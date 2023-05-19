@@ -32,19 +32,19 @@ jobs:
           labels: '2.5'
 
       - name: remove branch-3.0 label
-        if: contains(toJson(github.event.pull_request.body), '[ ] 3.0') && contains(github.event.pull_request.labels.*.name, '3.0')
+        if: contains(toJson(github.event.comment.body), '[ ] 3.0') && contains(github.event.pull_request.labels.*.name, '3.0')
         uses: actions-ecosystem/action-remove-labels@v1
         with:
           labels: '3.0'
           
       - name: remove branch-2.5 label
-        if: contains(toJson(github.event.pull_request.body), '[ ] 3.0') && contains(github.event.pull_request.labels.*.name, '2.5')
+        if: contains(toJson(github.event.comment.body), '[ ] 3.0') && contains(github.event.pull_request.labels.*.name, '2.5')
         uses: actions-ecosystem/action-remove-labels@v1
         with:
           labels: '2.5'
           
       - name: check-done
-        if: contains(toJson(github.event.pull_request.body), '[ ] I have checked the version labels')
+        if: contains(toJson(github.event.comment.body), '[ ] I have checked the version labels')
         run: |
           echo "You must mark this checkbox - I have checked the version labels which the pr will be auto backported to target branch"
           exit 1
