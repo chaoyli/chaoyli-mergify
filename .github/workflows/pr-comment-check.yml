@@ -12,10 +12,10 @@ jobs:
   branch-info-check:
     runs-on: ubuntu-latest
     if: ${{ github.event.issue.pull_request }} &&
-      (startsWith(github.event.pull_request.title, '[BugFix]') ||
-       startsWith(github.event.pull_request.title, '[Enhancement]')) &&
-      !contains(github.event.pull_request.title, 'cherry-pick') &&
-      !contains(github.event.pull_request.title, 'backport')
+        > (startsWith(github.event.pull_request.title, '[BugFix]') ||
+        startsWith(github.event.pull_request.title, '[Enhancement]')) &&
+        !contains(github.event.pull_request.title, 'cherry-pick') &&
+        !contains(github.event.pull_request.title, 'backport')
     steps:
       - name: add branch-3.0 label
         if: contains(toJson(github.event.comment.body), '[x] 3.0')
@@ -31,11 +31,11 @@ jobs:
 
       - name: check-done
         if: ${{ github.event.issue.pull_request }} &&
-          (startsWith(github.event.pull_request.title, '[BugFix]') ||
-           startsWith(github.event.pull_request.title, '[Enhancement]'))&&
-          !contains(github.event.pull_request.title, 'cherry-pick') &&
-          !contains(github.event.pull_request.title, 'backport') &&
-          contains(toJson(github.event.comment.body), '[ ] I have checked the version labels')
+            > (startsWith(github.event.pull_request.title, '[BugFix]') ||
+            startsWith(github.event.pull_request.title, '[Enhancement]'))&&
+            !contains(github.event.pull_request.title, 'cherry-pick') &&
+            !contains(github.event.pull_request.title, 'backport') &&
+            contains(toJson(github.event.comment.body), '[ ] I have checked the version labels')
         run: |
           echo "You must mark this checkbox - I have checked the version labels which the pr will be auto backported to target branch"
           exit 1
