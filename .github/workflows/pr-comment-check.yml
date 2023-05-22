@@ -6,7 +6,12 @@ on:
       - main
     types:
       - created
-      - edited  
+      - edited
+  pull_request_target:
+    branches:
+      - main
+    types:
+      - edited
 
 jobs:
   branch-info-check:
