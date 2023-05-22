@@ -11,7 +11,12 @@ on:
 jobs:
   branch-info-check:
     runs-on: ubuntu-latest
-    if: ${{ github.event.issue.pull_request }}
+    if: >
+        ${{ github.event.issue.pull_request }}
+        (startsWith(github.event.issue.title, '[BugFix]') ||
+        startsWith(github.event.issue.title, '[Enhancement]'))&&
+        !contains(github.event.issue.title, 'cherry-pick') &&
+        !contains(github.event.issue.title, 'backport')
        
     steps:
       - name: add branch-3.0 label
