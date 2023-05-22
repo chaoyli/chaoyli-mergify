@@ -8,24 +8,24 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           pullRequestOpened: |
-            ## What type of PR is this:
-            - [ ] BugFix
-            - [ ] Feature
-            - [ ] Enhancement
-            - [ ] Refactor
-            - [ ] UT
-            - [ ] Doc
-            - [ ] Tool
+            ## What type of PR is this:\n
+            - [ ] BugFix\n
+            - [ ] Feature\n
+            - [ ] Enhancement\n
+            - [ ] Refactor\n
+            - [ ] UT\n
+            - [ ] Doc\n
+            - [ ] Tool\n
 
-            ## Checklist:
-            - [ ] I have added test cases for my bug fix or my new feature
-            - [ ] This pr will affect users' behaviors
-            - [ ] This pr needs user documentation (for new or modified features or behaviors)
-              - [ ] I have added documentation for my new feature or new function
+            ## Checklist:\n
+            - [ ] I have added test cases for my bug fix or my new feature\n
+            - [ ] This pr will affect users' behaviors\n
+            - [ ] This pr needs user documentation (for new or modified features or behaviors)\n
+              - [ ] I have added documentation for my new feature or new function\n
 
-            ## Bugfix cherry-pick branch check:
-            - [ ] I have checked the version labels which the pr will be auto backported to target branch
-              - [ ] 3.0
-              - [ ] 2.5
-              - [ ] 2.4
-              - [ ] 2.3
+            ## Bugfix cherry-pick branch check:\n
+            - [ ] I have checked the version labels which the pr will be auto backported to target branch\n
+              - [ ] 3.0\n
+              - [ ] 2.5\n
+              - [ ] 2.4\n
+              - [ ] 2.3\n
