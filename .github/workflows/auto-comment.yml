@@ -4,9 +4,10 @@ jobs:
   run:
     runs-on: ubuntu-latest
     steps:
+      - env:
+          GITHUB_TOKEN: ${{ secrets.MY_TOKEN }}
       - uses: wow-actions/auto-comment@v1
         with:
-          GITHUB_TOKEN: ${{ secrets.MY_TOKEN }}
           pullRequestOpened: |
             ## What type of PR is this:
             - [ ] BugFix
