@@ -4,8 +4,6 @@ jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-      - env:
-          GITHUB_TOKEN: ${{ secrets.MY_TOKEN }}
       - uses: wow-actions/auto-comment@v1
         with:
           pullRequestOpened: |
