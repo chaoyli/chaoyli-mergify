@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: wow-actions/auto-comment@v1
         with:
-          TOKEN: ${{ secrets.AUTO_COMMENT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           pullRequestOpened: |
             ## What type of PR is this:
             - [ ] BugFix
