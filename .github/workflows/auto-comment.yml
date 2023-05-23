@@ -10,7 +10,7 @@ jobs:
   comment:
     runs-on: ubuntu-latest
     steps:
-      - run: gh pr comment $ISSUE --body "## What type of PR is this:"
+      - run: gh pr comment $PR_REQUEST --body "## What type of PR is this:"
         env:
           GITHUB_TOKEN: ${{ github.token }}
           PR_REQUEST: ${{ github.event.pull_request.html_url }}
