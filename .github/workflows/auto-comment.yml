@@ -10,26 +10,6 @@ jobs:
   comment:
     runs-on: ubuntu-latest
     steps:
-      - run: gh pr comment $ISSUE --body "## What type of PR is this:
-            - [ ] BugFix
-            - [ ] Feature
-            - [ ] Enhancement
-            - [ ] Refactor
-            - [ ] UT
-            - [ ] Doc
-            - [ ] Tool
-
-            ## Checklist:
-            - [ ] I have added test cases for my bug fix or my new feature
-            - [ ] This pr will affect users' behaviors
-            - [ ] This pr needs user documentation (for new or modified features or behaviors)
-              - [ ] I have added documentation for my new feature or new function
-
-            ## Bugfix cherry-pick branch check:
-            - [ ] I have checked the version labels which the pr will be auto backported to target branch
-              - [ ] 3.0
-              - [ ] 2.5
-              - [ ] 2.4
-              - [ ] 2.3"
+      - run: gh pr comment $ISSUE --body "## What type of PR is this:"
         env:
           PR_REQUEST: ${{ github.event.pull_request.html_url }}
