@@ -6,9 +6,8 @@ jobs:
     steps:
       - uses: wow-actions/auto-comment@v1
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.MY_TOKEN }}
           pullRequestOpened: |
-            {{ author }} Thank you for raising an issue.
             ## What type of PR is this:
             - [ ] BugFix
             - [ ] Feature
